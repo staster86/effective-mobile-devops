@@ -1,8 +1,5 @@
 # Python
 pycache/
-*.py
-*.pyo
-*.pyd
 
 # Docker logs
 *.log
