@@ -28,6 +28,7 @@ backend (порт 8080 — только внутри сети em-network)
 
 - **Backend** — минимальный HTTP-сервер на Python, слушает только порт 8080 внутри контейнера. Доступен исключительно из Docker-сети, с хоста напрямую недоступен.
 - **Nginx** — reverse proxy, принимает запросы с хоста на порт 80 и перенаправляет их на backend по имени сервиса. Передаёт стандартные заголовки (`Host`, `X-Real-IP`, `X-Forwarded-For`, `X-Forwarded-Proto`).
+```
 
 ### Структура проекта
 ```text
@@ -40,28 +41,29 @@ backend (порт 8080 — только внутри сети em-network)
 ├── docker-compose.yml
 ├── README.md
 └── .gitignore
-
+```
 
 #### Как запустить проект
 1. Склонируйте репозиторий:
-   ```bash
+```bash
    git clone https://github.com/staster86/effective-mobile-devops.git
    cd effective-mobile-devops
-
+```
 2. Соберите и запустите контейнеры:
-    ```bash
+```bash
     docker-compose up --build -d
-
+```
 #### Отладка
 1. Проверьте статус контейнеров:
-    ```bash
+```bash
     docker ps (Должны быть видны два контейнера: em-nginx и em-backend.)
-
+```
 2. Проверить работоспособность:
-    ```bash
+```bash
     curl http://localhost (Ожидаемый ответ "Hello from Effective Mobile!")
-
+```
 #### Как остановить и удалить контейнеры
 1. Остановка и удаление:
-    ```bash
+```bash
     docker-compose down
+```
